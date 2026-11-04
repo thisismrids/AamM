@@ -931,14 +931,39 @@ a:hover {
 .work-img {
   display: block;
   overflow: hidden;
+  /* Fixed frame so every portfolio card is the same size, whatever the image dimensions */
+  aspect-ratio: 16 / 10;
+  background-color: #222831;
 }
 
 .work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   transition: all 1s;
 }
 
 .work-content {
   padding: 2rem 3% 1rem 4%;
+}
+
+/* Equal card heights: reserve room for a title/subtitle that wraps to two lines */
+@media (min-width: 768px) {
+  .work-content {
+    min-height: 9rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .work-content {
+    min-height: 8.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .work-content {
+    min-height: 7.5rem;
+  }
 }
 
 .work-content .w-more {
